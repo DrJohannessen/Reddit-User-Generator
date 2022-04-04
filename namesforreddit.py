@@ -11,11 +11,9 @@ import secrets
 import os
 driver = webdriver.Chrome(ChromeDriverManager().install()) # USES CHROMEDRIVERMANAGER TO AUTO UPDATE CHROMEDRIVER
 
-# GENERATE PASSWORD
-alphabet = string.ascii_letters + string.digits
-#password = ''.join(secrets.choice(alphabet) for i in range(16))
-password = "TD45V0VDc61b47rs"
-# PASSWORD GENERATION FINISHED
+
+password = "Dein_Wunschpasswort"
+email = "Deine_Wunschemail"
 
 # NAME GENERATION
 driver.get('https://en.wikipedia.org/wiki/Special:Random')
@@ -44,7 +42,7 @@ time.sleep(1)
 
 # REDDIT ACCOUNT CREATION
 driver.get('https://www.reddit.com/register/')
-driver.find_element_by_id('regEmail').send_keys('cdasdgfsdgf+' + name + "@gmail.com")
+driver.find_element_by_id('regEmail').send_keys(email)
 time.sleep(1)
 driver.find_element_by_xpath ("//button[contains(text(),'Fortsetzen')]").click()
 time.sleep(3)
