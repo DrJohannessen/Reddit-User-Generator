@@ -13,8 +13,8 @@ driver = webdriver.Chrome(ChromeDriverManager().install()) # USES CHROMEDRIVERMA
 
 # GENERATE PASSWORD
 alphabet = string.ascii_letters + string.digits
-#password = ''.join(secrets.choice(alphabet) for i in range(16))
-password = "TD45V0VDc61b47rs"
+password = ''.join(secrets.choice(alphabet) for i in range(16))
+#password = "TD45V0VDc61b47rs"
 # PASSWORD GENERATION FINISHED
 
 # NAME GENERATION
@@ -34,17 +34,16 @@ randomNumber = random.randint(10000,99999)
 dirname = os.path.dirname(__file__)
 text_file_path = os.path.join(dirname, 'namesforreddit.txt')
 text_file = open(text_file_path, "a")
-text_file.write("USR: " + name + str(randomNumber) + " PWD: " + password) #OUTPUTS NAME AND NUMBER
-text_file.write("\n")
+finalName = name+str(randomNumber)
+text_file.write('        {\n            "username": "' + finalName + '",\n            "password": "' + password + '"\n        },\n') #OUTPUTS NAME AND PASSWORD
 text_file.close()
 
-finalName = name+str(randomNumber)
 time.sleep(1)
 # NAME GENERATION FINISHED
 
 # REDDIT ACCOUNT CREATION
 driver.get('https://www.reddit.com/register/')
-driver.find_element_by_id('regEmail').send_keys('cdasdgfsdgf+' + name + "@gmail.com")
+driver.find_element_by_id('regEmail').send_keys('cdasdgfsdgf+' + finalName + "@gmail.com")
 time.sleep(1)
 driver.find_element_by_xpath ("//button[contains(text(),'Fortsetzen')]").click()
 time.sleep(3)
