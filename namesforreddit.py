@@ -29,7 +29,7 @@ name = name[:random.randint(5,7)] #KEEPS 5 TO 7 LETTERS OF THE ORIGINAL STRING
 
 randomNumber = random.randint(10000,99999)
 #in txt ablegen
-message = f'{{"username": {username}, "password":  {password} }}'
+message = f'{{"username": {name}, "password":  {password} }}'
 dirname = os.path.dirname(__file__)
 text_file_path = os.path.join(dirname, 'namesforreddit.txt')
 text_file = open(text_file_path, "a")
