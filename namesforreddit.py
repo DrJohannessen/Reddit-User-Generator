@@ -41,8 +41,10 @@ time.sleep(1)
 # NAME GENERATION FINISHED
 
 # REDDIT ACCOUNT CREATION
+emaillist = email.split("@")
+emailfinal = f'{emaillist[0]} + {name} @ {emaillist[1]}'
 driver.get('https://www.reddit.com/register/')
-driver.find_element_by_id('regEmail').send_keys(email)
+driver.find_element_by_id('regEmail').send_keys(emailfinal)
 time.sleep(1)
 driver.find_element_by_xpath ("//button[contains(text(),'Fortsetzen')]").click()
 time.sleep(3)
